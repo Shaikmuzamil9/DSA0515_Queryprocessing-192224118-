@@ -1,0 +1,98 @@
+class SmartSecuritySystem:
+    def _init_(self):
+        # Default values: alarm off, camera off, door unlocked, window and gate closed
+        self.alarmStatus = False
+        self.cameraStatus = False
+        self.doorStatus = False  # False means unlocked
+        self.windowStatus = True  # True means closed
+        self.gateStatus = True  # True means closed
+
+    def turnAlarmOn(self):
+        self.alarmStatus = True
+        print("Alarm is now ON.")
+
+    def turnAlarmOff(self):
+        self.alarmStatus = False
+        print("Alarm is now OFF.")
+
+    def turnCameraOn(self):
+        self.cameraStatus = True
+        print("Camera is now ON.")
+
+    def turnCameraOff(self):
+        self.cameraStatus = False
+        print("Camera is now OFF.")
+
+    def lockDoor(self):
+        self.doorStatus = True
+        print("Door is now LOCKED.")
+
+    def unlockDoor(self):
+        self.doorStatus = False
+        print("Door is now UNLOCKED.")
+
+    def closeWindow(self):
+        self.windowStatus = True
+        print("Window is now CLOSED.")
+
+    def openWindow(self):
+        self.windowStatus = False
+        print("Window is now OPEN.")
+
+    def closeGate(self):
+        self.gateStatus = True
+        print("Gate is now CLOSED.")
+
+    def openGate(self):
+        self.gateStatus = False
+        print("Gate is now OPEN.")
+
+    def status(self):
+        print("Current System Status:")
+        print(f"Alarm: {'ON' if self.alarmStatus else 'OFF'}")
+        print(f"Camera: {'ON' if self.cameraStatus else 'OFF'}")
+        print(f"Door: {'LOCKED' if self.doorStatus else 'UNLOCKED'}")
+        print(f"Window: {'CLOSED' if self.windowStatus else 'OPEN'}")
+        print(f"Gate: {'CLOSED' if self.gateStatus else 'OPEN'}")
+
+
+def main():
+    securitySystem = SmartSecuritySystem()
+    print("Welcome to the Smart Security System!")
+    
+    while True:
+        command = input("\nEnter a command (turn_alarm_on, turn_alarm_off, turn_camera_on, "
+                        "turn_camera_off, lock_door, unlock_door, close_window, open_window, "
+                        "close_gate, open_gate, status, exit): ").strip()
+        
+        if command == "turn_alarm_on":
+            securitySystem.turnAlarmOn()
+        elif command == "turn_alarm_off":
+            securitySystem.turnAlarmOff()
+        elif command == "turn_camera_on":
+            securitySystem.turnCameraOn()
+        elif command == "turn_camera_off":
+            securitySystem.turnCameraOff()
+        elif command == "lock_door":
+            securitySystem.lockDoor()
+        elif command == "unlock_door":
+            securitySystem.unlockDoor()
+        elif command == "close_window":
+            securitySystem.closeWindow()
+        elif command == "open_window":
+            securitySystem.openWindow()
+        elif command == "close_gate":
+            securitySystem.closeGate()
+        elif command == "open_gate":
+            securitySystem.openGate()
+        elif command == "status":
+            securitySystem.status()
+        elif command == "exit":
+            print("Exiting the Smart Security System. Goodbye!")
+            break
+        else:
+            print("Invalid command. Please try again.")
+
+
+if _name_ == "_main_":
+    main()
